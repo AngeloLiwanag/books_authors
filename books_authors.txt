@@ -1,0 +1,47 @@
+book.objects.create(title = "Python", desc = "Language")
+
+author.objects.create(first_name = "Jane", last_name = "Austen")
+
+book = book.objects.get(title="C Sharp")
+book.__dict__
+book.id = 1
+book.title = C Sharp
+NAME CHANGE
+book.title = "C#"
+book.save()
+book.title
+
+a=author.objects.get(id=4)
+
+a.first_name = "Bill"
+a.save()
+a.__dict__
+
+>>> book1 = book.objects.get(id = 1)
+>>> book2 = book.objects.get(id=2)
+>>> author1.books.add(book1)
+>>> author1.books.add(book2)
+
+>>> author2 = author.objects.get(id=2)
+>>> book3 = book.objects.get(id=3)
+>>> author2.books.add(book1, book2, book3)
+
+>>> author3 = author.objects.get(id=3)
+>>> book4 = book.objects.get(id=4)
+>>> author3.books.add(book1,book2,book3,book4)
+
+>>> book5 = book.objects.get(id=5)
+>>> author4 = author.objects.get(id=4)
+>>> author4.books.add(book1,book2,book3,book4,book5)
+
+book3.author.all()
+author1.books.all()
+
+remove1=book3.author.get(id=1)
+remove1.delete()
+
+book2.author.add(author5)
+
+book3.author.all()
+
+>>> book5.author.all()

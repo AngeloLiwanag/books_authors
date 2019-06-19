@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>you are here right now</title>
+</head>
+<body>
+    <h1>{{author.first_name}} {{author.last_name}}</h1>
+    <p>ID:{{author.id}}</p>
+    <p>Notes: <b>{{author.note}}</b></p>
+    <p>Books:</p>
+    {% for book in books %}
+    <p> - {{book.title}}</p>
+    {% endfor %}
+    <form action="/insert_book" method="post">
+        {% csrf_token %}
+        <select name="book_id" id="">
+            {% for book in books %}
+            <option value="{{book.id}}">{{book.title}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">submit</button>
+        <input name="author_id" type="hidden" value="{{ author.id }}">
+    </form>
+    <a href="/">Back</a>
+</body>
+</html>
